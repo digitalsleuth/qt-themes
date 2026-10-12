@@ -1,19 +1,28 @@
 from __future__ import annotations
 
 import dataclasses
+import importlib
 import json
 import logging
 import os
 import pathlib
+import sys
 from json import JSONDecodeError
 
 try:
     from qtpy import QtGui, QtWidgets  # ty: ignore[unresolved-import]
 except ImportError:
-    try:
-        from PySide6 import QtGui, QtWidgets
-    except ImportError:
-        from PySide2 import QtGui, QtWidgets  # ty: ignore[unresolved-import]
+    _BINDINGS = ('PySide6', 'PyQt6', 'PySide2')
+    _LOADED = tuple(b for b in _BINDINGS if f'{b}.QtWidgets' in sys.modules)
+    for _binding in _LOADED + _BINDINGS:
+        try:
+            QtGui = importlib.import_module(f'{_binding}.QtGui')
+            QtWidgets = importlib.import_module(f'{_binding}.QtWidgets')
+            break
+        except ImportError:
+            continue
+    else:
+        raise ImportError('No Qt binding found. Install PySide6, PyQt6 or PySide2.')
 
 ColorGroup = QtGui.QPalette.ColorGroup
 ColorRole = QtGui.QPalette.ColorRole

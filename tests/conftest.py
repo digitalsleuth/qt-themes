@@ -4,7 +4,8 @@ import os
 from collections.abc import Iterator
 
 import pytest
-from PySide6 import QtWidgets
+
+from qt_themes._theme import QtWidgets
 
 
 @pytest.fixture(scope='session')

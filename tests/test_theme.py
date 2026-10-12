@@ -1,11 +1,12 @@
+#!/usr/bin/env python3
+
 from __future__ import annotations
 
 import dataclasses
 
-from PySide6 import QtGui, QtWidgets
-
 import qt_themes
 from qt_themes import Theme
+from qt_themes._theme import QtGui, QtWidgets
 
 ColorRole = QtGui.QPalette.ColorRole
 
