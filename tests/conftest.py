@@ -4,12 +4,13 @@ import os
 from collections.abc import Iterator
 
 import pytest
-from PySide6 import QtWidgets
+
+from qt_themes._theme import QtWidgets
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def app() -> Iterator[QtWidgets.QApplication]:
-    os.environ.setdefault('QT_QPA_PLATFORM', 'offscreen')
+    os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
     app = QtWidgets.QApplication.instance()
     if not isinstance(app, QtWidgets.QApplication):
         app = QtWidgets.QApplication([])

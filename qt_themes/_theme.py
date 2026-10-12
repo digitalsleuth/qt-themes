@@ -1,25 +1,38 @@
 from __future__ import annotations
 
 import dataclasses
+import importlib
 import json
 import logging
 import os
 import pathlib
+import sys
 from json import JSONDecodeError
+from typing import TYPE_CHECKING
 
-try:
-    from qtpy import QtGui, QtWidgets  # ty: ignore[unresolved-import]
-except ImportError:
+if TYPE_CHECKING:
+    from PySide6 import QtGui, QtWidgets
+else:
     try:
-        from PySide6 import QtGui, QtWidgets
+        from qtpy import QtGui, QtWidgets
     except ImportError:
-        from PySide2 import QtGui, QtWidgets  # ty: ignore[unresolved-import]
+        _BINDINGS = ("PySide6", "PyQt6", "PySide2")
+        _LOADED = tuple(b for b in _BINDINGS if f"{b}.QtWidgets" in sys.modules)
+        for _binding in _LOADED + _BINDINGS:
+            try:
+                QtGui = importlib.import_module(f"{_binding}.QtGui")
+                QtWidgets = importlib.import_module(f"{_binding}.QtWidgets")
+                break
+            except ImportError:
+                continue
+        else:
+            raise ImportError("No Qt binding found. Install PySide6, PyQt6 or PySide2.")
 
 ColorGroup = QtGui.QPalette.ColorGroup
 ColorRole = QtGui.QPalette.ColorRole
 
-THEMES = 'QT_THEMES'
-PROPERTY_NAME = 'theme'
+THEMES = "QT_THEMES"
+PROPERTY_NAME = "theme"
 
 logger = logging.getLogger(__package__)
 
@@ -68,20 +81,20 @@ def get_theme(name: str | None = None) -> Theme | None:
         else:
             return None
 
-    file_name = f'{name}.json'
+    file_name = f"{name}.json"
     themes_paths = _get_paths()
     for themes_path in themes_paths:
         path = themes_path / file_name
         if path.exists():
             break
     else:
-        logger.warning(f'Cannot find theme {file_name!r}.')
+        logger.warning(f"Cannot find theme {file_name!r}.")
         return None
 
     try:
         return _load(path)
     except (JSONDecodeError, TypeError):
-        logger.warning(f'Invalid theme {str(path)!r}.')
+        logger.warning(f"Invalid theme {str(path)!r}.")
         return None
 
 
@@ -94,12 +107,12 @@ def get_themes() -> dict[str, Theme]:
         if not themes_path.is_dir():
             continue
         for path in themes_path.iterdir():
-            if not path.is_file() or path.suffix != '.json':
+            if not path.is_file() or path.suffix != ".json":
                 continue
             try:
                 themes[path.stem] = _load(path)
             except (JSONDecodeError, TypeError):
-                logger.warning(f'Invalid theme {str(path)!r}.')
+                logger.warning(f"Invalid theme {str(path)!r}.")
                 continue
 
     return themes
@@ -175,7 +188,7 @@ def update_palette(palette: QtGui.QPalette, theme: Theme) -> None:
         pass
 
 
-def set_theme(theme: Theme | str | None, style: str | None = 'fusion') -> None:
+def set_theme(theme: Theme | str | None, style: str | None = "fusion") -> None:
     """
     Set the theme and style for the current QApplication.
     By default, set the fusion style as it works the best with QPalette ColorRoles.
@@ -206,7 +219,7 @@ def set_theme(theme: Theme | str | None, style: str | None = 'fusion') -> None:
 
 
 def set_widget_theme(
-    widget: QtWidgets.QWidget, theme: Theme | str | None, style: str | None = 'fusion'
+    widget: QtWidgets.QWidget, theme: Theme | str | None, style: str | None = "fusion"
 ) -> None:
     """
     Set the theme and style for the given QWidget.
@@ -253,8 +266,8 @@ def _load(path: os.PathLike[str]) -> Theme:
 def _get_paths() -> tuple[pathlib.Path, ...]:
     """Return all paths to search for themes."""
 
-    paths = [pathlib.Path(__file__).parent / 'themes']
+    paths = [pathlib.Path(__file__).parent / "themes"]
     if env_path := os.getenv(THEMES):
         paths.extend(pathlib.Path(path) for path in env_path.split(os.pathsep))
-    logger.debug(f'Color themes paths: {paths}')
+    logger.debug(f"Color themes paths: {paths}")
     return tuple(paths)

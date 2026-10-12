@@ -20,6 +20,10 @@ Install using pip:
 pip install qt-themes
 ```
 
+qt-themes works with PySide6, PyQt6 and PySide2 (or any of them through
+[QtPy](https://github.com/spyder-ide/qtpy)). It uses the binding which is already imported.
+If none is imported yet, it picks the first one installed, in the order PySide6, PyQt6, PySide2.
+
 ## Usage
 
 Apply a theme for the QApplication:

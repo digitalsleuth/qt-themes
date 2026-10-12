@@ -1,9 +1,7 @@
 from __future__ import annotations
 
-from PySide6 import QtCore, QtGui, QtWidgets
-
 import qt_themes
-from examples import application
+from examples import QtCore, QtGui, QtWidgets, application
 
 ColorGroup = QtGui.QPalette.ColorGroup
 ColorRole = QtGui.QPalette.ColorRole
@@ -44,7 +42,7 @@ class ColorRoleWidget(QtWidgets.QWidget):
         self._update_colors()
 
     def _init_ui(self) -> None:
-        self.setWindowTitle('Color Roles')
+        self.setWindowTitle("Color Roles")
         self.setWindowFlags(QtCore.Qt.WindowType.Window)
         self.setMinimumWidth(800)
         self._layout = QtWidgets.QVBoxLayout()
@@ -53,10 +51,10 @@ class ColorRoleWidget(QtWidgets.QWidget):
         # Theme Dropdown
         control_layout = QtWidgets.QHBoxLayout()
         self._layout.addLayout(control_layout)
-        theme_label = QtWidgets.QLabel('Theme:')
+        theme_label = QtWidgets.QLabel("Theme:")
         control_layout.addWidget(theme_label)
         theme_combobox = QtWidgets.QComboBox()
-        names = ['default']
+        names = ["default"]
         names.extend(qt_themes.get_themes().keys())
         theme_combobox.addItems(names)
         theme_combobox.currentTextChanged.connect(self._set_theme)
@@ -113,8 +111,8 @@ class ColorRoleWidget(QtWidgets.QWidget):
                     background_color.greenF(),
                     background_color.blueF(),
                 )
-                rgb_text = ', '.join(f'{v:.2f}' for v in rgb)
-                label = QtWidgets.QLabel(f'({rgb_text})')
+                rgb_text = ", ".join(f"{v:.2f}" for v in rgb)
+                label = QtWidgets.QLabel(f"({rgb_text})")
                 frame_layout.addWidget(label)
 
             if all(color == colors[0] for color in colors):
@@ -123,7 +121,7 @@ class ColorRoleWidget(QtWidgets.QWidget):
                 role_label.setFont(font)
 
     def _set_theme(self, theme: str) -> None:
-        qt_themes.set_theme(None if theme == 'default' else theme)
+        qt_themes.set_theme(None if theme == "default" else theme)
         self._update_colors()
 
 
@@ -133,5 +131,5 @@ def main() -> None:
         widget.show()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

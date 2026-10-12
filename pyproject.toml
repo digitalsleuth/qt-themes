@@ -1,9 +1,10 @@
 [project]
 name = "qt-themes"
-version = "0.4.1"
+version = "0.4.2"
 description = "A collection of themes for Qt applications in Python."
 authors = [
-    {name = "Beat Reichenbach"}
+    {name = "Beat Reichenbach"},
+    {name = "Corey Forman @digitalsleuth"}
 ]
 dependencies = []
 requires-python = ">=3.9"
@@ -17,11 +18,13 @@ dev = [
     "pytest>=8.0",
     "ruff>=0.16",
     "ty>=0.0.82",
-    "PySide6"
+    "PySide6",
+    "PyQt6"
 ]
 pyside2 = ["PySide2"]
 pyside6 = ["PySide6"]
 qtpy = ["qtpy>=2.0,<3"]
+pyqt6 = ["PyQt6"]
 
 [build-system]
 requires = ["setuptools"]
