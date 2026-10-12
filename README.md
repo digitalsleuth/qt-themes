@@ -1,7 +1,5 @@
 # qt-themes
 
-[![PyPI version](https://img.shields.io/pypi/v/qt-themes.svg)](https://pypi.org/project/qt-themes/)
-[![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://pypi.org/project/qt-themes/)
 [![License](https://img.shields.io/pypi/l/qt-themes.svg)](https://github.com/beatreichenbach/qt-themes/blob/main/LICENSE)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![ty](https://img.shields.io/badge/type%20checked-ty-261230.svg)](https://github.com/astral-sh/ty)
@@ -11,7 +9,7 @@ This is a collection of themes for Qt in Python.
 The color schemes are applied with a QPalette which avoids the conflicts that can
 happen when using stylesheets.
 
-![Header](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/header.png)
+![Header](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/header.png)
 
 ## Installation
 
@@ -57,7 +55,7 @@ These are some of the themes that are included in the package.
 
 <https://github.com/beatreichenbach/one_dark_two>
 
-![One Dark Two](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/one_dark_two.png)
+![One Dark Two](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/one_dark_two.png)
 
 </details>
 
@@ -66,7 +64,7 @@ These are some of the themes that are included in the package.
 
 <https://monokai.pro>
 
-![Monokai](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/monokai.png)
+![Monokai](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/monokai.png)
 
 </details>
 
@@ -75,7 +73,7 @@ These are some of the themes that are included in the package.
 
 <https://nordtheme.com>
 
-![Nord](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/nord.png)
+![Nord](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/nord.png)
 
 </details>
 
@@ -84,10 +82,10 @@ These are some of the themes that are included in the package.
 
 <https://catppuccin.com>
 
-![Catppuccin Latte](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/catppuccin_latte.png)
-![Catppuccin Frappe](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/catppuccin_frappe.png)
-![Catppuccin Macchiato](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/catppuccin_macchiato.png)
-![Catppuccin Mocha](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/catppuccin_mocha.png)
+![Catppuccin Latte](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/catppuccin_latte.png)
+![Catppuccin Frappe](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/catppuccin_frappe.png)
+![Catppuccin Macchiato](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/catppuccin_macchiato.png)
+![Catppuccin Mocha](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/catppuccin_mocha.png)
 
 </details>
 
@@ -96,7 +94,7 @@ These are some of the themes that are included in the package.
 
 <https://atom.io>
 
-![Atom One](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/atom_one.png)
+![Atom One](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/atom_one.png)
 
 </details>
 
@@ -105,8 +103,8 @@ These are some of the themes that are included in the package.
 
 <https://github.com>
 
-![GitHub Dark](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/github_dark.png)
-![GitHub Light](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/github_light.png)
+![GitHub Dark](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/github_dark.png)
+![GitHub Light](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/github_light.png)
 
 </details>
 
@@ -115,7 +113,7 @@ These are some of the themes that are included in the package.
 
 <https://draculatheme.com/>
 
-![Dracula](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/dracula.png)
+![Dracula](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/dracula.png)
 
 </details>
 
@@ -124,7 +122,7 @@ These are some of the themes that are included in the package.
 
 <https://blender.org>
 
-![Blender](https://raw.githubusercontent.com/beatreichenbach/qt-themes/refs/heads/main/.github/assets/blender.png)
+![Blender](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/blender.png)
 
 </details>
 
