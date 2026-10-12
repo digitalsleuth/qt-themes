@@ -1,6 +1,6 @@
 # qt-themes
 
-[![License](https://img.shields.io/pypi/l/qt-themes.svg)](https://github.com/beatreichenbach/qt-themes/blob/main/LICENSE)
+[![License](https://img.shields.io/pypi/l/qt-themes.svg)](https://github.com/digitalsleuth/qt-themes/blob/main/LICENSE)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![ty](https://img.shields.io/badge/type%20checked-ty-261230.svg)](https://github.com/astral-sh/ty)
 
@@ -9,13 +9,15 @@ This is a collection of themes for Qt in Python.
 The color schemes are applied with a QPalette which avoids the conflicts that can
 happen when using stylesheets.
 
+This version of qt-themes has been modified from the original belonging to [Beat Reichenbach](https://github.com/beatreichenbach/qt-themes) to support PyQt6.
+
 ![Header](https://raw.githubusercontent.com/digitalsleuth/qt-themes/refs/heads/main/.github/assets/header.png)
 
 ## Installation
 
 Install using pip:
 ```shell
-pip install qt-themes
+pip install git+https://github.com/digitalsleuth/qt-themes.git
 ```
 
 qt-themes works with PySide6, PyQt6 and PySide2 (or any of them through
