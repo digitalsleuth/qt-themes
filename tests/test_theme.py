@@ -11,20 +11,20 @@ from qt_themes._theme import QtGui, QtWidgets
 ColorRole = QtGui.QPalette.ColorRole
 
 BUNDLED_THEMES = {
-    'atom_one',
-    'blender',
-    'catppuccin_frappe',
-    'catppuccin_latte',
-    'catppuccin_macchiato',
-    'catppuccin_mocha',
-    'dracula',
-    'github_dark',
-    'github_light',
-    'modern_dark',
-    'modern_light',
-    'monokai',
-    'nord',
-    'one_dark_two',
+    "atom_one",
+    "blender",
+    "catppuccin_frappe",
+    "catppuccin_latte",
+    "catppuccin_macchiato",
+    "catppuccin_mocha",
+    "dracula",
+    "github_dark",
+    "github_light",
+    "modern_dark",
+    "modern_light",
+    "monokai",
+    "nord",
+    "one_dark_two",
 }
 
 COLORS = tuple(field.name for field in dataclasses.fields(Theme))
@@ -48,17 +48,17 @@ def test_get_themes() -> None:
 
 
 def test_get_theme() -> None:
-    assert qt_themes.get_theme('nord') == qt_themes.get_themes()['nord']
-    assert qt_themes.get_theme('missing') is None
+    assert qt_themes.get_theme("nord") == qt_themes.get_themes()["nord"]
+    assert qt_themes.get_theme("missing") is None
 
 
 def test_is_dark_theme() -> None:
-    assert get('catppuccin_mocha').is_dark_theme()
-    assert not get('catppuccin_latte').is_dark_theme()
+    assert get("catppuccin_mocha").is_dark_theme()
+    assert not get("catppuccin_latte").is_dark_theme()
 
 
 def test_update_palette() -> None:
-    theme = get('nord')
+    theme = get("nord")
     palette = QtGui.QPalette()
     qt_themes.update_palette(palette, theme)
 
@@ -70,11 +70,11 @@ def test_update_palette() -> None:
 
 
 def test_set_theme(app: QtWidgets.QApplication) -> None:
-    theme = get('nord')
-    qt_themes.set_theme('nord', style=None)
+    theme = get("nord")
+    qt_themes.set_theme("nord", style=None)
 
     assert app.palette().color(ColorRole.Window) == theme.base
-    assert app.property('theme') == theme
+    assert app.property("theme") == theme
     assert qt_themes.get_theme() == theme
 
     qt_themes.set_theme(None, style=None)
@@ -82,12 +82,12 @@ def test_set_theme(app: QtWidgets.QApplication) -> None:
 
 
 def test_set_widget_theme(app: QtWidgets.QApplication) -> None:
-    theme = get('dracula')
+    theme = get("dracula")
     widget = QtWidgets.QWidget()
-    qt_themes.set_widget_theme(widget, 'dracula', style=None)
+    qt_themes.set_widget_theme(widget, "dracula", style=None)
 
     assert widget.palette().color(ColorRole.Window) == theme.base
-    assert widget.property('theme') == theme
+    assert widget.property("theme") == theme
 
     qt_themes.set_widget_theme(widget, None, style=None)
-    assert widget.property('theme') is None
+    assert widget.property("theme") is None

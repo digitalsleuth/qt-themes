@@ -4,7 +4,7 @@ version = "0.4.2"
 description = "A collection of themes for Qt applications in Python."
 authors = [
     {name = "Beat Reichenbach"},
-    {name = "Corey Forman @digitalsleuth")
+    {name = "Corey Forman @digitalsleuth"}
 ]
 dependencies = []
 requires-python = ">=3.9"

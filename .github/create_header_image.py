@@ -64,7 +64,7 @@ def create_header_image(
     shadow_offset: QtCore.QPoint | None = None,
 ) -> None:
     if not paths:
-        raise ValueError('paths cannot be empty')
+        raise ValueError("paths cannot be empty")
 
     if shadow_offset is None:
         shadow_offset = QtCore.QPoint(0, 4)
@@ -119,18 +119,18 @@ def create_header_image(
 
 
 def create_theme_header_image() -> None:
-    assets_dir = Path('./assets').resolve()
+    assets_dir = Path("./assets").resolve()
     themes = (
-        'catppuccin_latte',
-        'one_dark_two',
-        'monokai',
-        'catppuccin_frappe',
-        'atom_one',
-        'nord',
+        "catppuccin_latte",
+        "one_dark_two",
+        "monokai",
+        "catppuccin_frappe",
+        "atom_one",
+        "nord",
     )
-    paths = [assets_dir / f'{theme}.png' for theme in themes]
-    create_header_image(paths, assets_dir / 'header.png')
+    paths = [assets_dir / f"{theme}.png" for theme in themes]
+    create_header_image(paths, assets_dir / "header.png")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     create_theme_header_image()

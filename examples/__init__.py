@@ -1,10 +1,16 @@
 from __future__ import annotations
 
 import contextlib
+import importlib
 import sys
 from collections.abc import Iterator
 
-from PySide6 import QtWidgets
+from qt_themes._theme import QtGui, QtWidgets
+
+QtCore = importlib.import_module(f'{QtWidgets.__name__.rpartition(".")[0]}.QtCore')
+Signal = getattr(QtCore, "Signal", None) or QtCore.pyqtSignal
+
+__all__ = ["QtCore", "QtGui", "QtWidgets", "Signal", "application"]
 
 
 @contextlib.contextmanager
